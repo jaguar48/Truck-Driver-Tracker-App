@@ -1,0 +1,33 @@
+
+<h1>TRUCKS LIST</h1>
+<table>
+    
+    <thead>
+      <tr>
+        <th>ID</th>
+        
+        <th>AssetId</th>
+        <th>registrationNumber</th>
+        <th>lastPositionTimestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let truck of paginatedTruckList">
+        <td>{{ truck.id }}</td>
+       
+        <td>{{ truck.assetId }}</td>
+        <td>{{ truck.registrationNumber }}</td>
+        <td>{{ truck.lastPositionTimestamp }}</td>
+      </tr>
+    </tbody>
+  </table>
+    
+  
+  <div class="pagination-controls">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * itemsPerPage >= truckList.length">Next</button>
+  </div>
+  
+
+  

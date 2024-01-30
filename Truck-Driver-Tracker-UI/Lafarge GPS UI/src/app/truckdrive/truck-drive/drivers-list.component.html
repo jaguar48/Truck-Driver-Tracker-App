@@ -1,0 +1,39 @@
+<br><br><br>
+<button class="action-button" (click)="gotoLocateTruck()">Locate Truck</button>
+
+
+<button class="action-calculate" (click)="caculateDistance()">Calculate Distance</button>
+
+<br><br><br>
+<h1>DRIVERS LIST</h1>
+<table>
+    
+    <thead>
+      <tr>
+        <th>ID</th>
+       
+        <th>Name</th>
+        <th>Employee Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driver of paginatedDriversList">
+        <td>{{ driver.id }}</td>
+       
+        <td>{{ driver.name }}</td>
+        <td>{{ driver.employeeNumber }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-controls">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * itemsPerPage >= driversList.length">Next</button>
+  </div>
+  
+  <br><br> <br><br>
+  <app-truck-list></app-truck-list>
+  <br><br>
+  <br><br>
+  <app-truckdriverloc></app-truckdriverloc>

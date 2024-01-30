@@ -1,0 +1,36 @@
+
+<h1>TRUCKS CURRENT LOCATION</h1>
+<table>
+    
+    <thead>
+      <tr>
+       
+        
+        <th>DriverId</th>
+        <th>TruckId</th>
+        <th>TruckRegistrationNumber</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>TimeStamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let location of paginatedTruckDriverList">
+        <td>{{ location.driverId }}</td>
+       
+        <td>{{ location.truckId }}</td>
+        <td>{{ location.truckRegistrationNumber }}</td>
+        <td>{{ location.latitude }}</td>
+        <td>{{ location.longitude }}</td>
+        <td>{{ location.timeStamp }}</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+
+  <div class="pagination-controls">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * itemsPerPage >= truckdriverList.length">Next</button>
+  </div>
+  

@@ -1,0 +1,27 @@
+<button class="action-calculate" (click)="goBack()">Go Home</button>
+
+<div class="calculate-distance-container">
+    <form [formGroup]="distanceForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="truckId">Truck ID:</label>
+        <input type="text" id="truckId" formControlName="truckId" />
+      </div>
+  
+      <div class="form-group">
+        <label for="staticLat">Static Latitude:</label>
+        <input type="number" id="staticLat" formControlName="staticLat" />
+      </div>
+  
+      <div class="form-group">
+        <label for="staticLon">Static Longitude:</label>
+        <input type="number" id="staticLon" formControlName="staticLon" />
+      </div>
+  
+      <button type="submit" [disabled]="!distanceForm.valid">Calculate Distance</button>
+    </form>
+  
+    <div *ngIf="distance !== null" class="result">
+      <p>Distance: {{ distance }} units</p>
+    </div>
+  </div>
+  

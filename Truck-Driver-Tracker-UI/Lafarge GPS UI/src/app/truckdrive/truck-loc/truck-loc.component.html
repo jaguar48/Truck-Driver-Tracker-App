@@ -1,0 +1,26 @@
+
+<button class="action-calculate" (click)="goBack()">Go Home</button>
+<div class="truck-location-container">
+    <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="truckId">Truck ID:</label>
+        <input type="text" id="truckId" formControlName="truckId" />
+      </div>
+  
+      <div class="form-group">
+        <label for="driverId">Driver ID:</label>
+        <input type="text" id="driverId" formControlName="driverId" />
+      </div>
+  
+      <button type="submit" [disabled]="!locationForm.valid">Get Location</button>
+    </form>
+  
+    <div *ngIf="location !== null" class="result">
+      <p>Location Details:</p>
+      <p><strong>Address:</strong> {{ location.address }}</p>
+      <p><strong>Latitude:</strong> {{ location.latitude }}</p>
+      <p><strong>Longitude:</strong> {{ location.longitude }}</p>
+      <p><strong>Timestamp:</strong> {{ location.timestamp | date: 'medium' }}</p>
+    </div>
+  </div>
+  
